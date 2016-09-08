@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
   #最大１０文字
   validates :location, presence: true, length: { maximum: 10 }
   has_secure_password
+  
+  has_many :microposts
 end
