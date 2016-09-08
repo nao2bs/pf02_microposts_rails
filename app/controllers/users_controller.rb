@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :current_user, only: [:edit, :update, :destroy]
+  
   def new
     @user = User.new
   end
@@ -17,8 +19,24 @@ class UsersController < ApplicationController
     end
   end
   
+  def edit
+    @user = User.find(params[:id])
+    redirect_to root_path if @user != current_user
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = "Success Update"
+      redirect_to edit_user_path(@user)
+    else  
+      render 'edit'
+    end
+  end
+  
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :location)
   end
+  
 end
