@@ -5,6 +5,10 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <div class="info">
+        <p>メールアドレス：<%= @user.email %></p>
+        <p>場所：<%= @user.location %></p>
+      </div>
     </section>
   </aside>
   <div class="col-md-8">
@@ -16,8 +20,3 @@
     <% end %>
   </div>
 </div>
-
-
-メールアドレス：<%= @user.email %><br />
-
-場所：<%= @user.location %>
