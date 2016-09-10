@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :current_user, only: [:edit, :update, :destroy]
   
   def new
     @user = User.new
