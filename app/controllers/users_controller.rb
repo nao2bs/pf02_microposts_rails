@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :auth_user, only: [:edit, :update]
   
+  def index
+    @users = User.all
+  end
+  
   def new
     @user = User.new
   end
@@ -44,6 +48,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @followers = @user.follower_users
   end
+  
   
   private
   def user_params

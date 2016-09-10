@@ -1,0 +1,14 @@
+<h1>ユーザー一覧</h1>
+<table class="table table-striped">
+	<thead>
+	</thead>
+	<tbody>
+	    <% @users.each do |users| %>
+	    <tr>
+	      <td><%= gravatar_for(users) %></td>
+	      <td><%= users.name %></td>
+	      <td><%= link_to 'プロフィールページヘ', user_path(users) %></td> 
+	    </tr>
+      <% end %>
+	</tbody>
+</table>
