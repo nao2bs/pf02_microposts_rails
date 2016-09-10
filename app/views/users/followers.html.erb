@@ -1,0 +1,17 @@
+<h1>Followers User</h1>
+<p class="text-center">あなたをフォローしているユーザー一覧です。</p>
+
+<table class="table table-striped">
+	<thead>
+	</thead>
+	<tbody>
+	    <% @followers.each do |user| %>
+	    <tr>
+	      <td><%= gravatar_for(user) %></td>
+	      <td><%= user.name %></td>
+	      <td><%= link_to 'プロフィールページヘ', user_path(user) %></td> 
+	    </tr>
+      <% end %>
+	</tbody>
+</table>
+<%= link_to 'ページの切り替え', followings_user_path(@user) %>

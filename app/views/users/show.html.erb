@@ -9,6 +9,10 @@
         <p>メールアドレス：<%= @user.email %></p>
         <p>場所：<%= @user.location %></p>
       </div>
+      <div class="links">
+        <%= link_to 'Followings一覧', followings_user_path(@user) %>
+        <%= link_to 'Followers一覧', followers_user_path(@user) %>
+      </div>
     </section>
   </aside>
   <div class="col-md-8">
