@@ -1,4 +1,7 @@
 <h1>ユーザー一覧</h1>
+
+<%= page_entries_info @users %>
+
 <table class="table table-striped">
 	<thead>
 	</thead>
@@ -12,3 +15,5 @@
       <% end %>
 	</tbody>
 </table>
+
+<%= paginate @users %>

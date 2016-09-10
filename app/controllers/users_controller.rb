@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :auth_user, only: [:edit, :update]
   
   def index
-    @users = User.all
+    @users = User.page(params[:page])
   end
   
   def new
