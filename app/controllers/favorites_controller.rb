@@ -12,8 +12,10 @@ class FavoritesController < ApplicationController
   
   
   def destroy
-     @micropost = current_user..find(params[:id]).micropost
-     current_user.delete_favorite(@micropost)
+    @micropost = current_user.favorites.find(params[:id]).micropost
+    current_user.delete_favorite(@micropost)
+    flash[:success] = "delete Favorite"
+    redirect_to :back
   end
   
   

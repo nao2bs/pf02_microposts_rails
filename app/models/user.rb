@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   end
   
   def delete_favorite(micropost)
-    favorites = favorites.find_by(micropost_id: micropost.id)
-    favorites.destroy if favorites
+    fav = favorites.find_by(micropost_id: micropost.id)
+    fav.destroy if fav
   end
 end
