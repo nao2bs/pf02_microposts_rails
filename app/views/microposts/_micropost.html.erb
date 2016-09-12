@@ -12,10 +12,14 @@
     <% if logged_in?  %>
       <% if current_user.favorite?(micropost) %>
         <% @favorite = current_user.favorites.find_by(micropost_id: micropost.id) %>
-        <%= link_to "not favorite", favorite_path(@favorite) , method: :delete %>
+        
+        <%= link_to favorite_path(@favorite) , method: :delete , class: 'btn btn-default btn-sm' do %>
+        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+        <% end %>
+        
 	    <% else %>
 	      <%= link_to favorites_path(micropost_id: micropost.id) , method: :post , class: 'btn btn-default btn-sm' do %>
-        <span class="glyphicon glyphicon-star" aria-hidden="true"></span> add favorite
+        <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
         <% end %>
 	    <% end %>     
 	  <% end %>
