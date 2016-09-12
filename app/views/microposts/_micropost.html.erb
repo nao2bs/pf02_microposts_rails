@@ -8,5 +8,13 @@
       <%= link_to "delete", micropost, method: :delete,
                                        data: {  confirm: "You sure?"  } %>
     <% end %>
+    
+    <% if logged_in?  %>
+      <% if !current_user.favorite(micropost) %>
+	       <%= link_to "add favorite", favorites_path(micropost_id: micropost.id) , method: :post %>
+	    <% else current_user.favorite(micropost)  %>
+	       <%= link_to "not favorite", favorites_path(micropost_id: micropost.id) , method: :delete %>
+	    <% end %>     
+	  <% end %>
   </span>
 </li>

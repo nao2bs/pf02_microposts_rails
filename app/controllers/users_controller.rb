@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-  before_action :auth_user, only: [:edit, :update]
+  # before_action :auth_user, only: [:edit, :update]
+  # before_action :auth_user!
+  # before_action :logged_in_user
+  before_action :logged_in_user, only: [:edit, :update]
+  
   
   def index
     @users = User.page(params[:page])
@@ -47,6 +51,11 @@ class UsersController < ApplicationController
   def followers #フォローされているユーザー
     @user = User.find(params[:id])
     @followers = @user.follower_users
+  end
+  
+  def favorites
+    @user = User.find(params[:id])
+    @favorites = @user.favorite_posts
   end
   
   

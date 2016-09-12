@@ -7,6 +7,6 @@
 end
 
 
-(1..10).each do 
-Relationship.find_or_create_by(follower_id: rand(21), followed_id: rand(21))
-end
+# (1..10).each do 
+# Relationship.find_or_create_by(follower_id: rand(21), followed_id: rand(21))
+# end
