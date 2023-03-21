@@ -5,16 +5,30 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   
+<<<<<<< HEAD
   
+=======
+>>>>>>> microposts-heroku
   resources :users do
     member do
       get 'followings'
       get 'followers'
+<<<<<<< HEAD
     end  
   end
+=======
+      get 'favorites'
+    end
+  end
+  
+>>>>>>> microposts-heroku
     
   resources :microposts
+  
   resources :relationships, only: [:create, :destroy]
+  
+  
+  resources :favorites, only: [:create, :destroy]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
