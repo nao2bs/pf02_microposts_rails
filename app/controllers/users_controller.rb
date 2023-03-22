@@ -53,26 +53,20 @@ class UsersController < ApplicationController
     @followers = @user.follower_users
   end
   
-<<<<<<< HEAD
-=======
   def favorites
     @user = User.find(params[:id])
     @favorites = @user.favorite_posts
   end
   
   
->>>>>>> microposts-heroku
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :location)
   end
   
-<<<<<<< HEAD
-=======
   def auth_user
     @user = User.find(params[:id])
     redirect_to root_url unless @user == current_user
   end  
   
->>>>>>> microposts-heroku
 end

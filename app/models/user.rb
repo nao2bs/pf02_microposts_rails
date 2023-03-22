@@ -22,11 +22,6 @@ class User < ActiveRecord::Base
   has_many :follower_relationships, class_name: "Relationship",
                                      foreign_key: "followed_id",
                                      dependent: :destroy
-<<<<<<< HEAD
-  
-  has_many :follower_users ,through: :follower_relationships, source: :follower
-=======
->>>>>>> microposts-heroku
   
   has_many :follower_users ,through: :follower_relationships, source: :follower
   
